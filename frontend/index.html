@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>AI Code Bug Predictor</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			.cm-editor {
+				height: 16rem;
+				border-radius: 0.5rem;
+				overflow: hidden;
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+
+	<body
+		class="bg-gray-100 text-gray-900 min-h-screen flex flex-col items-center p-8 space-y-6"
+	>
+		<h1 class="text-3xl font-bold">🚀 AI Code Bug Predictor</h1>
+
+		<!-- Code input -->
+		<textarea
+			id="codeInput"
+			class="w-full max-w-3xl h-64 p-4 font-mono border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+			placeholder="Paste your C code here..."
+		></textarea>
+
+		<!-- Predict button -->
+		<button
+			onclick="predictBug()"
+			class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded font-semibold"
+		>
+			🧠 Predict Bug
+		</button>
+
+		<!-- Output -->
+		<pre
+			id="output"
+			class="w-full max-w-2xl bg-white text-gray-900 p-4 border border-gray-300 rounded hidden whitespace-pre-wrap"
+		></pre>
+		<script src="/frontend/scripts/script.js"></script>
+	</body>
+</html>

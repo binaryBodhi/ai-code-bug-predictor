@@ -1,0 +1,12 @@
+# Ignore virtual environment folder
+virtual/
+
+# Ignore Node.js modules
+node_modules/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore package files
+package.json
+package-lock.json
