@@ -1,13 +1,14 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, request, jsonify, render_template
+# from flask_cors import CORS
 from transformers import RobertaTokenizer, RobertaModel
 import torch
 import joblib
 import numpy as np
+# import os
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app, origins=["http://127.0.0.1:5500"])
+# CORS(app, origins=["http://127.0.0.1:5500"])
 
 # Set device
 if torch.backends.mps.is_available():
@@ -23,7 +24,13 @@ model = RobertaModel.from_pretrained("microsoft/codebert-base").to(device)
 model.eval()
 
 # Load your trained bug classifier
-clf = joblib.load("./model/bug-classifier.pkl")
+# MODEL_PATH = os.path.join(os.path.dirname(__file__), "model", "bug_classifier.pkl")
+clf = joblib.load("model/bug-classifier.pkl")
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 @app.route("/predict_bug", methods=["POST"])
 def predict_bug():
