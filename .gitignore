@@ -11,4 +11,5 @@ node_modules/
 package.json
 package-lock.json
 
+# Ignore macOS system files
 .DS_Store
